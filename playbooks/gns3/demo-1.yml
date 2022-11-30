@@ -1,23 +1,27 @@
----
-- name: Cisco show version example
-  hosts: spines
+- name: GNS3 EIGRP SPINE CONFIGURATION
+  hosts: spr01.gns3lab-01
   gather_facts: false
 
   tasks:
-    - name: run show version on the routers
-      ios_command:
-        commands: show version | incl Version
-      register: output
+  - name: configure ip interfaces
+    cisco.ios.ios_l3_interfaces:
+         config:
+         - name: GigabitEthernet2/0
+           ipv4:
+           - address: 172.16.0.1/30
 
-    - name: print output
-      debug:
-        var: output.stdout_lines
+         - name: GigabitEthernet3/0
+           ipv4:
+           - address: 172.16.0.5/30
 
-    - name: GET ios facts
-      cisco.ios.ios_facts:
-        gather_subset: all
-      register: test_var
+         - name: GigabitEthernet4/0
+           ipv4:
+           - address: 172.16.0.9/30
 
-    - name: print test
-      debug:
-        var: test_var
+         - name: GigabitEthernet5/0
+           ipv4:
+           - address: 172.16.0.13/30
+         state: merged
+
+        
+      
