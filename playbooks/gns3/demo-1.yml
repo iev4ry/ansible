@@ -22,6 +22,15 @@
            ipv4:
            - address: 172.16.0.13/30
          state: merged
+         
+  - name: configure EIGRP 
+    cisco.ios.ios_command:
+       commands:
+       - router eigrp 1 
+       - passive-interface GigabitEthernet1/0
+         
+         
+         
 
         
       
