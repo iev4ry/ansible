@@ -24,7 +24,7 @@
            
          - name: Loopback0
            ipv4:
-           - address: 172.19.0.1/30 
+           - address: 172.19.0.1/32 
          state: merged
          
   - name: configure eigrp 
@@ -66,7 +66,7 @@
            
          - name: Loopback0
            ipv4:
-           - address: 172.19.0.2/30 
+           - address: 172.19.0.2/32 
          state: merged
          
   - name: configure eigrp 
@@ -108,7 +108,7 @@
            
          - name: Loopback0
            ipv4:
-           - address: 172.19.0.3/30 
+           - address: 172.19.0.3/32 
          state: merged
          
   - name: configure eigrp 
@@ -150,7 +150,7 @@
            
          - name: Loopback0
            ipv4:
-           - address: 172.19.0.4/30 
+           - address: 172.19.0.4/32 
          state: merged
          
   - name: configure eigrp 
