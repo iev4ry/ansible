@@ -27,7 +27,7 @@
            - address: 172.19.0.1/30 
          state: merged
          
-  - name: configure EIGRP 
+  - name: configure eigrp 
     ios_config:
       lines:
       - passive-interface GigabitEthernet1/0
@@ -69,7 +69,7 @@
            - address: 172.19.0.2/30 
          state: merged
          
-  - name: configure EIGRP 
+  - name: configure eigrp 
     ios_config:
       lines:
       - passive-interface GigabitEthernet1/0
@@ -79,6 +79,90 @@
       - network 172.16.0.33 0.0.0.0
       - network 172.16.0.37 0.0.0.0
       parents: router eigrp 2
+      
+      
+      
+- name: GNS3 SPR03 EIGRP CONFIGURATION 
+  hosts: spr03.gns3lab-01
+  gather_facts: false
+
+  tasks:
+  - name: configure ip interfaces
+    cisco.ios.ios_l3_interfaces:
+         config:
+         - name: GigabitEthernet2/0
+           ipv4:
+           - address: 172.16.0.41/30
+
+         - name: GigabitEthernet3/0
+           ipv4:
+           - address: 172.16.0.45/30
+
+         - name: GigabitEthernet4/0
+           ipv4:
+           - address: 172.16.0.49/30
+
+         - name: GigabitEthernet5/0
+           ipv4:
+           - address: 172.16.0.53/30
+           
+         - name: Loopback0
+           ipv4:
+           - address: 172.19.0.3/30 
+         state: merged
+         
+  - name: configure eigrp 
+    ios_config:
+      lines:
+      - passive-interface GigabitEthernet1/0
+      - passive-interface Loopback0
+      - network 172.16.0.41 0.0.0.0
+      - network 172.16.0.45 0.0.0.0
+      - network 172.16.0.49 0.0.0.0
+      - network 172.16.0.53 0.0.0.0
+      parents: router eigrp 3
+      
+      
+      
+  - name: GNS3 SPR04 EIGRP CONFIGURATION 
+  hosts: spr04.gns3lab-01
+  gather_facts: false
+
+  tasks:
+  - name: configure ip interfaces
+    cisco.ios.ios_l3_interfaces:
+         config:
+         - name: GigabitEthernet2/0
+           ipv4:
+           - address: 172.16.0.57/30
+
+         - name: GigabitEthernet3/0
+           ipv4:
+           - address: 172.16.0.61/30
+
+         - name: GigabitEthernet4/0
+           ipv4:
+           - address: 172.16.0.65/30
+
+         - name: GigabitEthernet5/0
+           ipv4:
+           - address: 172.16.0.69/30
+           
+         - name: Loopback0
+           ipv4:
+           - address: 172.19.0.4/30 
+         state: merged
+         
+  - name: configure eigrp 
+    ios_config:
+      lines:
+      - passive-interface GigabitEthernet1/0
+      - passive-interface Loopback0
+      - network 172.16.0.57 0.0.0.0
+      - network 172.16.0.61 0.0.0.0
+      - network 172.16.0.65 0.0.0.0
+      - network 172.16.0.69 0.0.0.0
+      parents: router eigrp 2 
       
     
          
