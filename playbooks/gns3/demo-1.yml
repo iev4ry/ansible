@@ -39,9 +39,9 @@
       parents: router eigrp 1
       
   - name: bring ip interfaces up
-  cisco.ios.ios_interfaces:
-       config:
-       - name: GigabitEthernet2/0 
+    cisco.ios.ios_interfaces:
+         config:
+         - name: GigabitEthernet2/0 
          description: SPR-01 Gi2/0 to SPL-01 Gi1/0
          enabled: True
       
