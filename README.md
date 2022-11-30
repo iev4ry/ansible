@@ -1,3 +1,3 @@
 # ansible
 
-Home for Ansible Playbooks for testing purposes
+Home for Ansible Playbooks, testing github (im new), and automation scripts.
