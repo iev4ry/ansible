@@ -1,4 +1,4 @@
-- name: GNS3 EIGRP SPINE CONFIGURATION
+- name: GNS3 SPR01 EIGRP CONFIGURATION 
   hosts: spr01.gns3lab-01
   gather_facts: false
 
@@ -37,6 +37,48 @@
       - network 172.16.0.9 0.0.0.0
       - network 172.16.0.13 0.0.0.0
       parents: router eigrp 1
+      
+
+
+  - name: GNS3 SPR02 EIGRP CONFIGURATION 
+  hosts: spr02.gns3lab-01
+  gather_facts: false
+
+  tasks:
+  - name: configure ip interfaces
+    cisco.ios.ios_l3_interfaces:
+         config:
+         - name: GigabitEthernet2/0
+           ipv4:
+           - address: 172.16.0.21/30
+
+         - name: GigabitEthernet3/0
+           ipv4:
+           - address: 172.16.0.29/30
+
+         - name: GigabitEthernet4/0
+           ipv4:
+           - address: 172.16.0.33/30
+
+         - name: GigabitEthernet5/0
+           ipv4:
+           - address: 172.16.0.37/30
+           
+         - name: Loopback0
+           ipv4:
+           - address: 172.19.0.2/30 
+         state: merged
+         
+  - name: configure EIGRP 
+    ios_config:
+      lines:
+      - passive-interface GigabitEthernet1/0
+      - passive-interface Loopback0
+      - network 172.16.0.21 0.0.0.0
+      - network 172.16.0.25 0.0.0.0
+      - network 172.16.0.33 0.0.0.0
+      - network 172.16.0.37 0.0.0.0
+      parents: router eigrp 2
       
     
          
