@@ -1,0 +1,23 @@
+---
+- name: Cisco show version example
+  hosts: spines
+  gather_facts: false
+
+  tasks:
+    - name: run show version on the routers
+      ios_command:
+        commands: show version | incl Version
+      register: output
+
+    - name: print output
+      debug:
+        var: output.stdout_lines
+
+    - name: test
+      cisco.ios.ios_facts:
+        gather_subset: all
+      register: test_var
+
+    - name: print test
+      debug:
+        var: test_var
