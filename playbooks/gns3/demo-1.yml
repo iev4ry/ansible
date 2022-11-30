@@ -38,7 +38,7 @@
       - network 172.16.0.13 0.0.0.0
       parents: router eigrp 1
       
-  - name: bring ip interfaces up
+  - name: enable ip interfaces and set descriptions
     cisco.ios.ios_interfaces:
          config:
          - name: GigabitEthernet2/0 
