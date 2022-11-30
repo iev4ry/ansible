@@ -24,10 +24,12 @@
          state: merged
          
   - name: configure EIGRP 
-    cisco.ios.ios_command:
-       commands:
-       - router eigrp 1 
-       - passive-interface GigabitEthernet1/0
+    ios_config:
+      lines:
+      - passive-interface GigabitEthernet1/0
+      parents: router eigrp 1
+      
+    
          
          
          
