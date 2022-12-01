@@ -247,7 +247,7 @@
            enabled: True
            
       
-- name: GNS3 SPL04 EIGRP CONFIGURATION 
+- name: GNS3 SPL01 EIGRP CONFIGURATION 
   hosts: spl01.gns3lab-01
   gather_facts: false
 
