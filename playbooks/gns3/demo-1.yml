@@ -279,7 +279,6 @@
   - name: configure eigrp 
     ios_config:
       lines:
-      - passive-interface GigabitEthernet1/0
       - passive-interface Loopback0
       - network 172.16.0.2 0.0.0.0
       - network 172.16.0.22 0.0.0.0
