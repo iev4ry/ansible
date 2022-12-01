@@ -458,6 +458,27 @@
       source: GigabitEthernet2/0
       count: 6
       
+  - name: Test Gi3/0 to SPL-02 Gi1/0
+    cisco.ios.ios_ping:
+      dest: 172.16.0.6
+      source: GigabitEthernet3/0
+      count: 6
+    
+  - name: Test Gi4/0 to SPL-03 Gi1/0
+    cisco.ios.ios_ping:
+      dest: 172.16.0.9
+      source: GigabitEthernet4/0
+      count: 6
+      
+  - name: Test Gi5/0 to SPL-04 Gi1/0
+    cisco.ios.ios_ping:
+      dest: 172.16.0.14
+      source: GigabitEthernet5/0
+      count: 6
+      
+      
+      
+      
   
     
     
