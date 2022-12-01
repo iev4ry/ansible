@@ -246,7 +246,6 @@
            description: SPR-04 Gi5/0 to SPL-04 Gi4/0
            enabled: True
       
-   
 - name: GNS3 SPL01 EIGRP CONFIGURATION 
   hosts: spl01.gns3lab-01
   gather_facts: false
@@ -286,8 +285,7 @@
       - network 172.16.0.58 0.0.0.0
       parents: router eigrp 5
       
-     
-     
+    
   - name: enable ip interfaces and set descriptions
     cisco.ios.ios_interfaces:
          config:
