@@ -8,6 +8,9 @@
   - name: configure ip interfaces
     cisco.ios.ios_l3_interfaces:
          config:
+         - name: GigabitEthernet1/0
+           ipv4:
+           - address: 192.168.1.75/24
          - name: GigabitEthernet2/0
            ipv4:
            - address: 172.16.0.1/30
@@ -70,6 +73,10 @@
   - name: configure ip interfaces
     cisco.ios.ios_l3_interfaces:
          config:
+         - name: GigabitEthernet1/0
+           ipv4:
+           - address: 192.168.1.17/24  
+           
          - name: GigabitEthernet2/0
            ipv4:
            - address: 172.16.0.21/30
@@ -132,6 +139,10 @@
   - name: configure ip interfaces
     cisco.ios.ios_l3_interfaces:
          config:
+         - name: GigabitEthernet1/0
+           ipv4:
+           - address: 192.168.1.174/24
+           
          - name: GigabitEthernet2/0
            ipv4:
            - address: 172.16.0.41/30
@@ -194,6 +205,10 @@
   - name: configure ip interfaces
     cisco.ios.ios_l3_interfaces:
          config:
+         - name: GigabitEthernet1/0
+           ipv4:
+           - address: 192.168.1.87/24
+           
          - name: GigabitEthernet2/0
            ipv4:
            - address: 172.16.0.57/30
@@ -385,7 +400,7 @@
 
          - name: GigabitEthernet2/0
            ipv4:
-           - address: 172.16.0.33/30
+           - address: 172.16.0.34/30
 
          - name: GigabitEthernet3/0
            ipv4:
