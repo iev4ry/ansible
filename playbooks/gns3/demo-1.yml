@@ -57,10 +57,11 @@
            description: SPR-01 Gi5/0 to SPL-04 Gi1/0
            enabled: True
            
-  - name: reachability testing
+  - name: reachability testing for Gi2/0 to SPL-01 Gi1/0
     cisco.ios.ios_ping:
       dest: 172.16.0.2
-      source: GigabitEthernet2/0  
+      source: GigabitEthernet2/0
+      
            
            
         
