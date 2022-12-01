@@ -293,15 +293,78 @@
            enabled: True
            
          - name: GigabitEthernet2/0
-           description: SPR-04 Gi2/0 to SPR-02 Gi2/0
+           description: SPL-01 Gi2/0 to SPR-02 Gi2/0
            enabled: True
           
          - name: GigbabitEthernet3/0
-           description: SPR-04 Gi3/0 to SPR-03 Gi2/0
+           description: SPL-01 Gi3/0 to SPR-03 Gi2/0
            enabled: True
           
          - name: GigabitEthernet4/0 
-           description: SPR-04 Gi4/0 to SPR-04 Gi2/0
+           description: SPL-01 Gi4/0 to SPR-04 Gi2/0
+           enabled: True
+           
+           
+           
+           
+           
+- name: GNS3 SPL02 EIGRP CONFIGURATION 
+  hosts: spl02.gns3lab-01
+  gather_facts: false
+
+  tasks:
+  - name: configure ip interfaces
+    cisco.ios.ios_l3_interfaces:
+         config:
+         - name: GigabitEthernet1/0
+           ipv4:
+           - address: 172.16.0.6/30
+
+         - name: GigabitEthernet2/0
+           ipv4:
+           - address: 172.16.0.30/30
+
+         - name: GigabitEthernet3/0
+           ipv4:
+           - address: 172.16.0.46/30
+
+         - name: GigabitEthernet4/0
+           ipv4:
+           - address: 172.16.0.62/30
+           
+         - name: Loopback0
+           ipv4:
+           - address: 172.19.0.6/32 
+         state: merged
+         
+  - name: configure eigrp 
+    ios_config:
+      lines:
+      - passive-interface Loopback0
+      - network 172.16.0.6 0.0.0.0
+      - network 172.16.0.30 0.0.0.0
+      - network 172.16.0.46 0.0.0.0
+      - network 172.16.0.62 0.0.0.0
+      parents: router eigrp 1
+      
+      
+  - name: enable ip interfaces and set descriptions
+    cisco.ios.ios_interfaces:
+         config:
+         - name: GigabitEthernet1/0 
+           description: SPL-02 Gi1/0 to SPR-01 Gi3/0
+           enabled: True
+           
+         - name: GigabitEthernet2/0
+           description: SPL-02 Gi2/0 to SPR-02 Gi3/0
+           enabled: True
+          
+         - name: GigbabitEthernet3/0
+           description: SPL-02 Gi3/0 to SPR-03 Gi3/0
+           enabled: True
+          
+         - name: GigabitEthernet4/0 
+           description: SPL-02 Gi4/0 to SPR-04 Gi3/0
            enabled: True
            
            
