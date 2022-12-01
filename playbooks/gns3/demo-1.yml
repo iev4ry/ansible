@@ -57,17 +57,9 @@
            description: SPR-01 Gi5/0 to SPL-04 Gi1/0
            enabled: True
            
-  - name: reachability testing for Gi2/0 to SPL-01 Gi1/0
-    cisco.ios.ios_ping:
-      dest: 172.16.0.2
-      source: GigabitEthernet2/0
+  
       
-           
-           
-        
-      
-
-
+  
 - name: GNS3 SPR02 EIGRP CONFIGURATION 
   hosts: spr02.gns3lab-01
   gather_facts: false
@@ -313,10 +305,23 @@
            enabled: True
            
            
-           
-           
+          
          
-         
+- name: GNS3 SPR-01 L2 Peer Reachability Validation 
+  hosts: spr01.gns3lab-01
+  gather_facts: false
+
+  tasks:
+  - name: Test Gi2/0 to SPL-01 Gi1/0
+    cisco.ios.ios_ping:
+      dest: 172.16.0.2
+      source: GigabitEthernet2/0
+      count: 6
+      
+  
+    
+    
+  
          
            
          
