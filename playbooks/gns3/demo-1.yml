@@ -1,3 +1,5 @@
+# This playbook is written in LONG format and will later be written more efficiently! 
+
 - name: GNS3 SPR01 EIGRP CONFIGURATION 
   hosts: spr01.gns3lab-01
   gather_facts: false
