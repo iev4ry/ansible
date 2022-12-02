@@ -292,6 +292,7 @@
          - name: GigabitEthernet5/0
            ipv4:
            - address: 192.168.168.1/30
+           - ospf: network point-to-point
            
          - name: Loopback0
            ipv4:
@@ -314,12 +315,7 @@
       lines:
       - network 192.168.168.1 0.0.0.0 area 0
       parents: router ospf 1 
-      
-  - name: set Gi5/0 ospf mode >> POINT-TO-POINT
-    ios_config:
-      lines:
-      - ip ospf network point-to-point 
-      parents: GigabitEthernet5/0 
+   
       
       
   - name: enable ip interfaces and set descriptions
