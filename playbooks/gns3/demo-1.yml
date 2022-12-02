@@ -30,6 +30,9 @@
          - name: Loopback0
            ipv4:
            - address: 172.19.0.1/32 
+           
+           
+           
          state: merged
          
   - name: configure eigrp 
@@ -285,6 +288,10 @@
          - name: GigabitEthernet4/0
            ipv4:
            - address: 172.16.0.58/30
+           
+         - name: GigabitEthernet6/0
+           ipv4:
+           - address: 192.168.168.1/30
            
          - name: Loopback0
            ipv4:
