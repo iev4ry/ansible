@@ -307,13 +307,15 @@
       - network 172.16.0.22 0.0.0.0
       - network 172.16.0.42 0.0.0.0
       - network 172.16.0.58 0.0.0.0
-      - redistribute connected 
+      - redistribute connected
+      - redistribute ospf 1 metric 1 1 1 1 1500
       parents: router eigrp 1
       
   - name: configure ospf 
     ios_config:
       lines:
       - network 192.168.168.1 0.0.0.0 area 0
+      - redistribute eigrp 1 subnets
       parents: router ospf 1 
    
       
@@ -388,12 +390,14 @@
       - network 172.16.0.46 0.0.0.0
       - network 172.16.0.62 0.0.0.0
       - redistribute connected
+      - redistribute ospf 1 metric 1 1 1 1 1500
       parents: router eigrp 1
       
   - name: configure ospf 
     ios_config:
       lines:
       - network 192.168.168.5 0.0.0.0 area 0
+      - redistribute eigrp 1 subnets
       parents: router ospf 1 
       
       
