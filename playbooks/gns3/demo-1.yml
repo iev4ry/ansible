@@ -336,6 +336,7 @@
            
          - name: GigabitEthernet5/0 
            description: SPL-01 to PROD-RTR-01 Gi1/0
+           enabled: True
            
            
            
