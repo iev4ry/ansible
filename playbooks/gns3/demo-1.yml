@@ -318,7 +318,7 @@
   - name: set Gi5/0 ospf mode >> POINT-TO-POINT
     ios_config:
       lines:
-      - ospf network point-to-point 
+      - ip ospf network point-to-point 
       parents: GigabitEthernet5/0 
       
       
