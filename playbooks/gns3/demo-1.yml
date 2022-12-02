@@ -312,7 +312,8 @@
   - name: configure ospf 
     ios_config:
       lines:
-      - network 192.168.168.168.1 0.0.0.0 area 0  
+      - network 192.168.168.168.1 0.0.0.0 area 0
+      parents: router ospf 1 
       
       
   - name: enable ip interfaces and set descriptions
