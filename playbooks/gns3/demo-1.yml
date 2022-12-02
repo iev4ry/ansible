@@ -292,7 +292,7 @@
          - name: GigabitEthernet5/0
            ipv4:
            - address: 192.168.168.1/30
-           - ospf: network point-to-point
+          
            
          - name: Loopback0
            ipv4:
@@ -370,6 +370,10 @@
            ipv4:
            - address: 172.16.0.62/30
            
+         - name: GigabitEthernet5/0
+           ipv4:
+           - address: 192.168.168.5/30
+           
          - name: Loopback0
            ipv4:
            - address: 172.19.0.6/32 
@@ -410,6 +414,10 @@
           
          - name: GigabitEthernet4/0 
            description: SPL-02 Gi4/0 to SPR-04 Gi3/0
+           enabled: True
+           
+         - name: GigabitEthernet5/0 
+           description: to PROD-RTR-02 Eth1/0 
            enabled: True
            
            
