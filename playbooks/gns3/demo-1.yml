@@ -309,6 +309,11 @@
       - redistribute connected 
       parents: router eigrp 1
       
+  - name: configure ospf 
+    ios_config:
+      lines:
+      - network 192.168.168.168.1 0.0.0.0 area 0  
+      
       
   - name: enable ip interfaces and set descriptions
     cisco.ios.ios_interfaces:
