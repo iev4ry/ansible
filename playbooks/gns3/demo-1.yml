@@ -292,7 +292,6 @@
          - name: GigabitEthernet5/0
            ipv4:
            - address: 192.168.168.1/30
-          
            
          - name: Loopback0
            ipv4:
