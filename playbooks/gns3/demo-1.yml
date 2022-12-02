@@ -289,7 +289,7 @@
            ipv4:
            - address: 172.16.0.58/30
            
-         - name: GigabitEthernet6/0
+         - name: GigabitEthernet5/0
            ipv4:
            - address: 192.168.168.1/30
            
@@ -328,6 +328,10 @@
          - name: GigabitEthernet4/0 
            description: SPL-01 Gi4/0 to SPR-04 Gi2/0
            enabled: True
+           
+         - name: GigabitEthernet5/0 
+           description: SPL-01 to PROD-RTR-01 Gi1/0
+           
            
            
            
